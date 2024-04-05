@@ -41,13 +41,14 @@ const tasks = [
       severity: { _id: "61b017eb0cce782d386e7371", name: "Very Important" },
       completed: false,
     },
+    
   ];
   
   export function getTasks() {
-    console.log(tasks);
+    // console.log(tasks);
     return tasks;
   }
-  
+
   export function getTask(id) {
     return tasks.find((t) => t._id === id);
   }
@@ -64,7 +65,7 @@ const tasks = [
       taskInDb._id = Date.now();
       tasks.push(taskInDb);
     }
-    console.log(taskInDb);
+    // console.log(taskInDb);
     return taskInDb;
   }
   
@@ -73,4 +74,3 @@ const tasks = [
     tasks.splice(tasks.indexOf(taskInDb), 1);
     return taskInDb;
   }
-  
