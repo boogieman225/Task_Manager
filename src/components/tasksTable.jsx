@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import Check from "./common/check";
 import Table from './common/table';
 
 class TasksTable extends Component {
     columns = [
-        { path: 'title', label: 'Title' },
+        { 
+            path: 'title', 
+            label: 'Title', 
+            content: task => <Link to={`/tasks/${task._id}`}>{task.title}</Link> 
+        },
         { path: 'task', label: 'Task' },
         { path: 'category', label: 'Category' },
         { path: 'severity.name', label: 'Severity' },
@@ -24,6 +29,7 @@ render() {
 
     return (
         <Table columns={this.columns} data={tasks} onSort={onSort} sortColumn={sortColumn} />
+        
     );
     }
 }
